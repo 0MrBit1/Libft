@@ -10,7 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/minishell.h"
+
+#include "libft.h"
 
 int	ft_isdigit(int num)
 {

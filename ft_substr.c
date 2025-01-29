@@ -10,29 +10,30 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/minishell.h"
-char	*ft_substr(char const *s, unsigned int start, ssize_t len)
-{
-	char	*substr;
-	ssize_t	i;
-	ssize_t	j;
+#include "libft.h"
 
-	if (!s)
-		return (NULL);
-	i = start;
-	j = 0;
-	if (start >= ft_strlen(s))
-	{
-		substr = ft_strdup("");
-		return (substr);
-	}
-	if (len >= ft_strlen(s) - start)
-		len = ft_strlen(s) - start;
-	substr = (char *)malloc(sizeof(char) * (len + 1));
-	if (!substr)
-		return (NULL);
-	while (j < len)
-		substr[j++] = s[i++];
-	substr[j] = '\0';
-	return (substr);
+char    *ft_substr(char const *s, unsigned int start, size_t len)
+{
+    char    *str;
+    size_t  i;
+    size_t  s_len;
+
+    if (!s)
+        return (NULL);
+    s_len = ft_strlen(s);
+    if (start >= s_len)
+        return (ft_strdup(""));
+    if (len > s_len - start)
+        len = s_len - start;
+    str = malloc(sizeof(char) * (len + 1));
+    if (!str)
+        return (NULL);
+    i = 0;
+    while (i < len)
+    {
+        str[i] = s[start + i];
+        i++;
+    }
+    str[i] = '\0';
+    return (str);
 }

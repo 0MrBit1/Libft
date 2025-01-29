@@ -10,16 +10,14 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/minishell.h"
+#include "libft.h"
 
-ssize_t	ft_strlen(const char *str)
+size_t  ft_strlen(const char *str)
 {
-	ssize_t	len;
+    size_t  i;
 
-	len = 0;
-	while (str[len])
-	{
-		len++;
-	}
-	return (len);
+    i = 0;
+    while (str[i])
+        i++;
+    return (i);
 }
